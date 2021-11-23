@@ -1,0 +1,15 @@
+.sign-up {
+	display: flex;
+	flex-direction: column;
+	width: 380px;
+	.title {
+		margin: 10px 0;
+	}
+	.sign-up-form {
+		.error-message {
+			color: red;
+			font-size: 14px;
+			margin-top: 0px;
+		}
+	}
+}
