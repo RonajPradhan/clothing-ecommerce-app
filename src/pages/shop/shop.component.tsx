@@ -1,17 +1,17 @@
 import React from 'react';
-import CollectionPreview from '../../components/preview-collection/previous.collection.component';
-import { SHOP_DATA } from '../../constants';
-import './shop.styles.scss';
+import CollectionOverview from '../../components/collections-overview/collections.overview';
+import { Route } from "react-router-dom";
+import CategoryPage from '../category/category.component';
 
-function Shop() {
+const Shop = ({ match }: any) => {
+
 	return (
-		<div>
-			<p className="collection-title">Collections</p>
-			{SHOP_DATA.map(({ id, ...otherProps }) => (
-				<CollectionPreview key={id} {...otherProps} />
-			))}
+		<div className='shop-page'>
+			<Route exact path={`${match.path}`} component={CollectionOverview} />
+			<Route path={`${match.path}/:categoryId`} component={CategoryPage} />
 		</div>
 	);
-}
+
+};
 
 export default Shop;

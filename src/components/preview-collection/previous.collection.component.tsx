@@ -3,6 +3,7 @@ import CollectionItem from '../collection-item/collection-item.component';
 import './previous.collection.styles.scss';
 import { Item } from '../../constants';
 
+
 interface Props {
 	title: string;
 	items: Item[];
@@ -15,8 +16,8 @@ const CollectionPreview = ({ title, items }: Props) => {
 			<div className="preview">
 				{items
 					.filter((item: any, index: number) => index < 4)
-					.map(({ id, ...itemsProps }: any) => (
-						<CollectionItem key={id} {...itemsProps} />
+					.map((item: any) => (
+						<CollectionItem key={item.id} item={item} />
 					))}
 			</div>
 		</div>

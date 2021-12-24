@@ -13,11 +13,13 @@ import SignInAndSignUpPage from './pages/SignIn-and-SignUp/SignIn.SignUp.compone
 import { auth, createUserProfileDocument } from './FirebaseUtils/firebaseutils';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentUser } from './redux/user/user.actions';
+import { selectCurrentUser} from './redux/user/user.selectors';
+import CheckoutPage from './pages/checkout/checkout.component';
 
 function App() {
 	const dispatch = useDispatch();
 
-	const { currentUser } = useSelector((state: any) => state.user);
+	const currentUser = useSelector((state: any) => selectCurrentUser(state));
 
 	useEffect(() => {
 		let unsubscribeFromAuth: any = null;
@@ -50,6 +52,7 @@ function App() {
 						currentUser ? <Redirect to="/" /> : <SignInAndSignUpPage />
 					}
 				/>
+				<Route path = '/checkout' component={CheckoutPage}/>
 			</Switch>
 		</>
 	);
