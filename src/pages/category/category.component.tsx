@@ -10,7 +10,6 @@ const CategoryPage = ({ match }: any) => {
 
     const {items} = useSelector((state: any) => selectCollection(title)(state))
 
-    console.log(items)
 
 
     return (

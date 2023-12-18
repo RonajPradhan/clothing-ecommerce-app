@@ -13,8 +13,9 @@ import SignInAndSignUpPage from './pages/SignIn-and-SignUp/SignIn.SignUp.compone
 import { auth, createUserProfileDocument } from './FirebaseUtils/firebaseutils';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentUser } from './redux/user/user.actions';
-import { selectCurrentUser} from './redux/user/user.selectors';
+import { selectCurrentUser } from './redux/user/user.selectors';
 import CheckoutPage from './pages/checkout/checkout.component';
+import Contact from './pages/contact/contact.component';
 
 function App() {
 	const dispatch = useDispatch();
@@ -52,7 +53,8 @@ function App() {
 						currentUser ? <Redirect to="/" /> : <SignInAndSignUpPage />
 					}
 				/>
-				<Route path = '/checkout' component={CheckoutPage}/>
+				<Route path="/checkout" component={CheckoutPage} />
+				<Route path="/contact" component={Contact} />
 			</Switch>
 		</>
 	);

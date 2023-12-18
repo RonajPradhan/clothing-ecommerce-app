@@ -11,7 +11,6 @@ const CollectionOverview = () => {
         COLLECTION_DATA: selectCollectionsForPreview
     })))
 
-    console.log(COLLECTION_DATA)
     return (
         <div>
             <div className="collections-overview">

@@ -11,8 +11,6 @@ import { toggleCartDropdown } from '../../redux/cart/cart.action';
 const CartDropdown = () => {
 	const  cartItems = useSelector((state: any) => selectCartItems(state));
 
-	console.log(cartItems)
-
 	const dispatch = useDispatch();
 
 	const history = useHistory();

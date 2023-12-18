@@ -1,0 +1,46 @@
+.image-container {
+	height: 400px;
+	position: relative;
+	h3 {
+		margin: 0px;
+		font-size: 30px;
+		position: absolute;
+		top: 45%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		color: white;
+		text-align: center;
+	}
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+.second-line {
+	margin-top: 15px;
+	.headline {
+		text-align: center;
+		h4 {
+			margin: 0px 0px 15px 0px;
+			font-size: 25px;
+		}
+	}
+	.grid-container {
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 20px;
+		.left-grid {
+			margin: 15px;
+		}
+		.right-grid {
+			margin: 15px;
+			text-align: center;
+			.right-heading {
+				text-align: center;
+			}
+		}
+	}
+}

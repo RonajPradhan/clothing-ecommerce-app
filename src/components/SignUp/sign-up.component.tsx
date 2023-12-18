@@ -20,7 +20,6 @@ const SignUp = () => {
 	const handleSubmit = async (e: any) => {
 		e.preventDefault();
 		const { displayName, email, password, confirmPassword } = credentials;
-		console.log(credentials);
 		if (password !== confirmPassword) {
 			alert('Passwords dont match');
 			return;
@@ -40,7 +39,6 @@ const SignUp = () => {
 				confirmPassword: '',
 			});
 		} catch (error) {
-			console.log(error);
 			setError(error);
 		}
 	};

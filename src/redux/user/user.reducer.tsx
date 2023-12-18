@@ -7,7 +7,6 @@ const Initial_State = {
 const userReducer = (state = Initial_State, action: any) => {
 	switch (action.type) {
 		case userActionTypes.SET_CURRENT_USER:
-			console.log(action.payload);
 			return {
 				...state,
 				currentUser: action.payload,
