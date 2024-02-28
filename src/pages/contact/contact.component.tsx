@@ -15,7 +15,7 @@ const Contact = () => {
 
 	const handleButton = () => {
 		// Side Effect Here!
-	
+		prompt('Submitted Successfully!');
 	};
 
 	return (
@@ -56,7 +56,7 @@ const Contact = () => {
 						<div className="right-heading">
 							<h4>Want to reach out?</h4>
 						</div>
-						<form>
+						<form onSubmit={() => handleButton()}>
 							<FormInput
 								name="email"
 								type="email"
@@ -72,9 +72,7 @@ const Contact = () => {
 								onChange={(e: any) => handleChange(e)}
 								required
 							/>
-							<CustomButton type="button" onClick={() => handleButton()}>
-								Submit
-							</CustomButton>
+							<CustomButton type="submit">Submit</CustomButton>
 						</form>
 					</div>
 				</div>
