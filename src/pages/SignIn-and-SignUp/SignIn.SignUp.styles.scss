@@ -1,6 +1,20 @@
 .sign-in-and-sign-up {
-	width: 850px;
-	display: flex;
-	justify-content: space-between;
+	width: 100%;
+	display: grid;
+	gap: 20px;
+	grid-template-rows: 1fr 1fr;
 	margin: 30px auto;
+}
+
+@media only screen and (min-width: 700px) {
+	.sign-in-and-sign-up {
+		width: 80%;
+	}
+}
+
+@media only screen and (min-width: 500px) {
+	.sign-in-and-sign-up {
+		grid-template-columns: 1fr 1fr;
+		gap: 50px;
+	}
 }

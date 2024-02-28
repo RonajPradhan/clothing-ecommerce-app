@@ -52,11 +52,11 @@ const SignIn = () => {
 
 				<div className="buttons">
 					<CustomButton type="submit">Signin</CustomButton>
-					<CustomButton onClick={signInWithGoogle} isGoogleSignedIn>
-						Signin with google
-					</CustomButton>
 				</div>
 			</form>
+			<CustomButton onClick={signInWithGoogle} isGoogleSignedIn>
+				Signin with google
+			</CustomButton>
 		</div>
 	);
 };
