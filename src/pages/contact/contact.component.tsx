@@ -22,7 +22,7 @@ const Contact = () => {
 		<>
 			<div className="image-container">
 				<h3>Contact Us</h3>
-				<img src={Backdrop} alt="" />
+				<img className='image-backdrop' src={Backdrop} alt="" />
 			</div>
 			<div className="second-line">
 				<div className="headline">
