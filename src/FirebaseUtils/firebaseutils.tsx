@@ -50,4 +50,28 @@ provider.setCustomParameters({ prompt: 'select_account' });
 
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
 
+const db = firebase.firestore();
+
+// db.collection("users").add({
+//     first: "Ada",
+//     last: "Lovelace",
+//     born: 1815
+// })
+// .then((docRef) => {
+//     console.log("Document written with ID: ", docRef.id);
+// })
+// .catch((error) => {
+//     console.error("Error adding document: ", error);
+// });
+
+// console.log(db.collection('users').get());
+
+// db.collection('collections')
+// 	.get()
+// 	.then((querySnapshot) => {
+// 		querySnapshot.forEach((doc) => {
+// 			console.log(doc.data());
+// 		});
+// 	});
+
 export default firebase;

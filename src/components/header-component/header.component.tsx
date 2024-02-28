@@ -10,7 +10,6 @@ import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
 import { selectCartHidden } from '../../redux/cart/cart.selectors';
 import NavDropDown from '../nav-dropdown/nav-dropdown.component';
-import menu from '../../assets/menu.png';
 import MenuIcon from '../menu-icon/menu-icon.component';
 
 const Header = () => {
@@ -20,6 +19,10 @@ const Header = () => {
 
 	const updateMedia = () => {
 		setDesktop(window.innerWidth > 500);
+
+		if (window.innerWidth > 500) {
+			setIsTrue(false);
+		}
 	};
 
 	useEffect(() => {

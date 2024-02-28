@@ -5,15 +5,11 @@ import { Link } from 'react-router-dom';
 const NavDropDown = () => {
 	return (
 		<div className="drop-container">
-			<div className="pages">
-				<Link to="/shop">shop</Link>
-			</div>
-			<div className="pages">
-				<Link to="/shop">contact</Link>
-			</div>
-			<div className="pages">
-				<Link to="/shop">signin</Link>
-			</div>
+			<Link to="/shop">shop</Link>
+
+			<Link to="/contact">contact</Link>
+
+			<Link to="/signin">signin</Link>
 		</div>
 	);
 };

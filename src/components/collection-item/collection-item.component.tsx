@@ -6,10 +6,11 @@ import { useDispatch } from 'react-redux';
 import { addItems } from '../../redux/cart/cart.action';
 
 interface Props {
-	item : Item
+	item: Item;
 }
 
-const CollectionItem = ({item} : Props) => {
+const CollectionItem = ({ item }: Props) => {
+
 
 	const dispatch = useDispatch();
 
@@ -17,13 +18,15 @@ const CollectionItem = ({item} : Props) => {
 		<div className="collection-item">
 			<div
 				className="image-container"
-				style={{ backgroundImage: `url(${item.imageUrl})`}}
+				style={{ backgroundImage: `url(${item.imageUrl})` }}
 			></div>
 			<div className="collection-footer">
 				<span className="name">{item.name}</span>
 				<span className="price">${item.price}</span>
 			</div>
-			<CustomButton inverted onClick={() => dispatch(addItems(item))}>ADD TO CART</CustomButton>
+			<CustomButton inverted onClick={() => dispatch(addItems(item))}>
+				ADD TO CART
+			</CustomButton>
 		</div>
 	);
 };
