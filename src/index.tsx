@@ -7,7 +7,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store, persistor } from './redux/store';
 import { PersistGate } from 'redux-persist/es/integration/react';
-
+import { ErrorBoundary } from 'react-error-boundary';
+import FallBack from './components/error-boundary/error-boundary.component';
 
 ReactDOM.render(
 	<React.StrictMode>

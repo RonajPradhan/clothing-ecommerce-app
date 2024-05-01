@@ -6,11 +6,12 @@ import { selectDirectorySections } from '../../redux/directory/directory.selecto
 import { createStructuredSelector } from 'reselect';
 
 const HomePage = () => {
-
-	const { sections } = useSelector(createStructuredSelector({
-		sections: selectDirectorySections
-	}));
-
+	const { sections } = useSelector(
+		createStructuredSelector({
+			sections: selectDirectorySections,
+		})
+	);
+	// throw Error;
 	return (
 		<div className="homepage">
 			<div className="directory-menu">

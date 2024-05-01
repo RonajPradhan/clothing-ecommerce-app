@@ -14,6 +14,25 @@ let firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+export const convertCollectionsSnapshotToMap = (collections: any) => {
+	const transformedCollection = collections.docs.map((doc: any) => {
+		const { title, items } = doc.data();
+		return {
+			routeName: encodeURI(title).toLowerCase(),
+			id: doc.id,
+			title,
+			items,
+		};
+	});
+	return transformedCollection.reduce(
+		(accumulator: { [x: string]: any }, collection: { title: string }) => {
+			accumulator[collection.title.toLowerCase()] = collection;
+			return accumulator;
+		},
+		{}
+	);
+};
+
 export const createUserProfileDocument = async (
 	userAuth: any,
 	additionalData?: any

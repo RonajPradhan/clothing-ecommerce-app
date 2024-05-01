@@ -7,12 +7,15 @@ import { Link } from 'react-router-dom';
 interface Props {
 	title: string;
 	items: Item[];
+
 }
 
-const CollectionPreview = ({ title, items }: Props) => {
+const CollectionPreview = ({ title, items, }: Props) => {
+	
+
 	return (
 		<div className="collection-preview">
-			<div className='link-container'>
+			<div className="link-container">
 				<Link to={`/shop/${title.toLowerCase()}`} className="title">
 					{title.toUpperCase()}
 				</Link>

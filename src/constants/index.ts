@@ -272,13 +272,13 @@ export const section: HomeSection = [
 	{
 		id: 1,
 		title: 'hats',
-		imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+		imageUrl: 'https://i.ibb.co/VLtkxQj/ahmed-syed-6-NVr-H0-HB-DE-unsplash-1.jpg',
 		linkUrl: 'hats',
 	},
 	{
 		id: 2,
 		title: 'jackets',
-		imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+		imageUrl: 'https://i.ibb.co/XVDxwGs/markus-spiske-o-Eoe-qfym-ZQ-unsplash-1.jpg',
 		linkUrl: 'jackets',
 	},
 	{
@@ -290,14 +290,14 @@ export const section: HomeSection = [
 	{
 		id: 4,
 		title: 'womens',
-		imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
+		imageUrl: 'https://i.ibb.co/GcGP37X/priscilla-du-preez-g-Ydj-Zz-XNWlg-unsplash-1.jpg',
 		linkUrl: 'womens',
 		size: 'large',
 	},
 	{
 		id: 5,
 		title: 'mens',
-		imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+		imageUrl: 'https://i.ibb.co/ftq2p4r/andrew-neel-Hqt-Ywl-Y9dxs-unsplash-1.jpg',
 		linkUrl: 'mens',
 		size: 'large',
 	},
