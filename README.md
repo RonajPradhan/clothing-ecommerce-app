@@ -22,7 +22,7 @@ This e-commerce app allows users to browse products, add them to the cart, and m
 Follow these steps to set up the development environment.
 
 **Prerequisites**
-* Node.js (version 14 or higher)
+* Node.js (version 19 or higher)
 * npm or yarn
 
 **Installing**
