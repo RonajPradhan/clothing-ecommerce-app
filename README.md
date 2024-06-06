@@ -38,7 +38,7 @@ yarn install
 ``` 
 3. Navigate to the client folder
 ```bash
-cd Client
+cd client
 ```
 4. Install frontend dependencies:
 ```bash
