@@ -16,7 +16,7 @@
 		"@types/webrtc": "^0.0.39",
 		"axios": "^1.6.8",
 		"dotenv": "^16.4.5",
-		"firebase": "^8.4.1",
+		"firebase": "9.1.1",
 		"react": "17",
 		"react-dom": "17",
 		"react-error-boundary": "^4.0.13",

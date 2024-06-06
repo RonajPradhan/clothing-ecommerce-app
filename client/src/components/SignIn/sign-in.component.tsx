@@ -3,6 +3,7 @@ import './sign-in.styles.scss';
 import FormInput from '../../components/form-input/form.input.component.';
 import CustomButton from '../custom-button/custom.button.component';
 import { auth, signInWithGoogle } from '../../FirebaseUtils/firebaseutils';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 const SignIn = () => {
 	const [credentials, setCredentials] = useState({
@@ -14,8 +15,12 @@ const SignIn = () => {
 		e.preventDefault();
 		const { email, password } = credentials;
 		try {
-			await auth.signInWithEmailAndPassword(email, password);
-			setCredentials({ email: '', password: '' });
+			signInWithEmailAndPassword(auth, email, password)
+				.then((result: any) => {
+					console.log(result);
+					setCredentials({ email: '', password: '' });
+				})
+				.catch((error: any) => console.log(error));
 		} catch (error) {
 			console.log(error);
 		}

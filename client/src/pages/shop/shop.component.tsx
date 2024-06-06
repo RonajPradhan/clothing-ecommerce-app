@@ -8,6 +8,7 @@ import {
 } from '../../FirebaseUtils/firebaseutils';
 import { useDispatch } from 'react-redux';
 import { updateCollection } from '../../redux/collection/collection.action';
+import { collection, onSnapshot } from 'firebase/firestore';
 const CollectionOverview = lazy(
 	() => import('../../components/collections-overview/collections.overview')
 );
@@ -23,12 +24,15 @@ const Shop = ({ match }: any) => {
 
 	useEffect(() => {
 		let unsubscribeFromSnapshot: any = null;
-		const collectionRef = firestore.collection('collections');
-		unsubscribeFromSnapshot = collectionRef.onSnapshot(async (snapshot) => {
-			const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
-			dispatch(updateCollection(collectionsMap));
-			setIsLoading({ loading: false });
-		});
+		const collectionRef = collection(firestore, 'collections');
+		unsubscribeFromSnapshot = onSnapshot(
+			collectionRef,
+			async (snapshot: any) => {
+				const collectionsMap = convertCollectionsSnapshotToMap(snapshot);
+				dispatch(updateCollection(collectionsMap));
+				setIsLoading({ loading: false });
+			}
+		);
 		return () => {
 			unsubscribeFromSnapshot();
 		};

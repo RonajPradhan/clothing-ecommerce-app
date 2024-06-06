@@ -6,6 +6,7 @@ import {
 import CustomButton from '../custom-button/custom.button.component';
 import FormInput from '../form-input/form.input.component.';
 import './sign-up.styles.scss';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 const SignUp = () => {
 	const [credentials, setCredentials] = useState({
@@ -25,7 +26,8 @@ const SignUp = () => {
 			return;
 		}
 		try {
-			const { user } = await auth.createUserWithEmailAndPassword(
+			const { user }: any = createUserWithEmailAndPassword(
+				auth,
 				email,
 				password
 			);
@@ -39,6 +41,7 @@ const SignUp = () => {
 				confirmPassword: '',
 			});
 		} catch (error) {
+			console.log(error);
 			setError(error);
 		}
 	};
@@ -84,7 +87,7 @@ const SignUp = () => {
 					onChange={(e: any) => handleChange(e)}
 					required
 				/>
-				{error && <p className="error-message">*Note: ({error.message})</p>}
+				{error && <p className="error-message">*Note: ({error})</p>}
 				<CustomButton type="submit">SIGN Up</CustomButton>
 			</form>
 		</div>

@@ -12,6 +12,8 @@ import Success from './pages/success-cancel/Success';
 import Cancel from './pages/success-cancel/Cancel';
 import Spinner from './components/spinner/spinner.component';
 import FallBack from './components/error-boundary/error-boundary.component';
+import { onAuthStateChanged } from 'firebase/auth';
+import { onSnapshot } from 'firebase/firestore';
 
 const HomePage = lazy(() => import('./pages/Homepage/HomePage.component'));
 const Shop = lazy(() => import('./pages/shop/shop.component'));
@@ -28,21 +30,22 @@ function App() {
 
 	useEffect(() => {
 		let unsubscribeFromAuth: any = null;
-		unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+		unsubscribeFromAuth = onAuthStateChanged(auth, async (userAuth) => {
 			if (userAuth) {
 				const userRef = await createUserProfileDocument(userAuth);
-				userRef?.onSnapshot((snapShot) => {
-					dispatch(setCurrentUser({ id: snapShot.id, ...snapShot.data() }));
-				});
+				if (userRef) {
+					onSnapshot(userRef, (snapShot: any) => {
+						dispatch(setCurrentUser({ id: snapShot.id, ...snapShot.data() }));
+					});
+				}
+			} else {
+				dispatch(setCurrentUser(userAuth));
 			}
-
-			dispatch(setCurrentUser(userAuth));
 		});
 		return () => {
 			unsubscribeFromAuth();
 		};
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<>
