@@ -41,7 +41,6 @@ const SignUp = () => {
 				confirmPassword: '',
 			});
 		} catch (error) {
-			console.log(error);
 			setError(error);
 		}
 	};

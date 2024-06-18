@@ -1,7 +1,15 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
-import { doc, getDoc, getFirestore, setDoc } from 'firebase/firestore';
+import {
+	addDoc,
+	collection,
+	doc,
+	getDoc,
+	getFirestore,
+	setDoc,
+	writeBatch,
+} from 'firebase/firestore';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 
 let firebaseConfig = {
@@ -77,7 +85,18 @@ export const signInWithGoogle = () =>
 			console.log('Caught error popup closed!');
 		});
 
-// export const db = getFirestore(app);
+// async function batchWriteData() {
+// 	for (const homePage of homePageSection) {
+// 		try {
+// 			const docRef = await addDoc(collection(db, 'homePage'), homePage);
+// 			console.log('Doc wrotten with ID:', docRef.id);
+// 		} catch (e) {
+// 			console.log('Error adding Document: ', e);
+// 		}
+// 	}
+// }
+
+// batchWriteData();
 
 // db.collection("users").add({
 //     first: "Ada",

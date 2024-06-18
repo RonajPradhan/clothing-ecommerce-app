@@ -4,25 +4,38 @@ import Backdrop from '../../assets/justanimage.jpg';
 import FormInput from '../../components/form-input/form.input.component.';
 import FormTextArea from '../../components/form-textarea/form.textarea.component';
 import CustomButton from '../../components/custom-button/custom.button.component';
+import axios from 'axios';
 
 const Contact = () => {
-	const [info, setInfo] = useState<any>({ email: '', message: '' });
+	const [info, setInfo] = useState<any>({ name: '', email: '', message: '' });
 
 	const handleChange = (e: any) => {
 		e.preventDefault();
 		setInfo({ ...info, [e.target.name]: e.target.value });
 	};
 
-	const handleButton = () => {
+	const handleButton = async (e: any) => {
 		// Side Effect Here!
-		prompt('Submitted Successfully!');
+		e.preventDefault();
+		const { name, email, message } = info;
+		const data = {
+			name: name,
+			email: email,
+			message: message,
+		};
+
+		try {
+			await axios.post('/sendEmail', data);
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	return (
 		<>
 			<div className="image-container">
 				<h3>Contact Us</h3>
-				<img className='image-backdrop' src={Backdrop} alt="" />
+				<img className="image-backdrop" src={Backdrop} alt="" />
 			</div>
 			<div className="second-line">
 				<div className="headline">
@@ -56,7 +69,15 @@ const Contact = () => {
 						<div className="right-heading">
 							<h4>Want to reach out?</h4>
 						</div>
-						<form onSubmit={() => handleButton()}>
+						<form onSubmit={(e) => handleButton(e)}>
+							<FormInput
+								name="name"
+								type="name"
+								value={info.name}
+								label="name"
+								onChange={(e: any) => handleChange(e)}
+								required
+							/>
 							<FormInput
 								name="email"
 								type="email"

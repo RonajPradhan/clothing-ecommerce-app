@@ -8,8 +8,6 @@ import { auth, createUserProfileDocument } from './FirebaseUtils/firebaseutils';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selectors';
-import Success from './pages/success-cancel/Success';
-import Cancel from './pages/success-cancel/Cancel';
 import Spinner from './components/spinner/spinner.component';
 import FallBack from './components/error-boundary/error-boundary.component';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -64,8 +62,6 @@ function App() {
 						/>
 						<Route path="/checkout" component={CheckoutPage} />
 						<Route path="/contact" component={Contact} />
-						{/* <Route path="/success" component={Success} />
-					<Route path="/cancel" component={Cancel} /> */}
 					</Suspense>
 				</ErrorBoundary>
 			</Switch>
