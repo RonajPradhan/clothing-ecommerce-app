@@ -1,4 +1,3 @@
-import React from 'react';
 import './Homepage.component.scss';
 import MenuItem from '../../components/menu-item/menu-item.component';
 import { useSelector } from 'react-redux';
@@ -11,7 +10,7 @@ const HomePage = () => {
 			sections: selectDirectorySections,
 		})
 	);
-	// throw Error;
+
 	return (
 		<div className="homepage">
 			<div className="directory-menu">

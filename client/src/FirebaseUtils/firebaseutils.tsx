@@ -2,13 +2,11 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import {
-	addDoc,
-	collection,
 	doc,
 	getDoc,
 	getFirestore,
 	setDoc,
-	writeBatch,
+	
 } from 'firebase/firestore';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 
@@ -22,9 +20,23 @@ let firebaseConfig = {
 	measurementId: `${process.env.REACT_APP_FIREBASE_MESUREMENT_ID}`,
 };
 
-const app = firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 export const auth = getAuth();
 export const firestore = getFirestore();
+
+export const convertDirectorySnapshotToMap = (directory: any) => {
+	const transformedDirectory = directory.docs.map((doc: any) => {
+		const { id, imageUrl, linkUrl, size, title } = doc.data();
+		return {
+			id,
+			imageUrl,
+			linkUrl,
+			size,
+			title,
+		};
+	});
+	return transformedDirectory;
+};
 
 export const convertCollectionsSnapshotToMap = (collections: any) => {
 	const transformedCollection = collections.docs.map((doc: any) => {
@@ -84,40 +96,5 @@ export const signInWithGoogle = () =>
 		.catch((error: any) => {
 			console.log('Caught error popup closed!');
 		});
-
-// async function batchWriteData() {
-// 	for (const homePage of homePageSection) {
-// 		try {
-// 			const docRef = await addDoc(collection(db, 'homePage'), homePage);
-// 			console.log('Doc wrotten with ID:', docRef.id);
-// 		} catch (e) {
-// 			console.log('Error adding Document: ', e);
-// 		}
-// 	}
-// }
-
-// batchWriteData();
-
-// db.collection("users").add({
-//     first: "Ada",
-//     last: "Lovelace",
-//     born: 1815
-// })
-// .then((docRef) => {
-//     console.log("Document written with ID: ", docRef.id);
-// })
-// .catch((error) => {
-//     console.error("Error adding document: ", error);
-// });
-
-// console.log(db.collection('users').get());
-
-// db.collection('collections')
-// 	.get()
-// 	.then((querySnapshot) => {
-// 		querySnapshot.forEach((doc) => {
-// 			console.log(doc.data());
-// 		});
-// 	});
 
 export default firebase;
