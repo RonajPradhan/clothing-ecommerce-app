@@ -5,6 +5,7 @@ import FormInput from '../../components/form-input/form.input.component.';
 import FormTextArea from '../../components/form-textarea/form.textarea.component';
 import CustomButton from '../../components/custom-button/custom.button.component';
 import axios from 'axios';
+import { showToast } from '../../utils/showToast';
 
 const Contact = () => {
 	const [info, setInfo] = useState<any>({ name: '', email: '', message: '' });
@@ -25,7 +26,13 @@ const Contact = () => {
 		};
 
 		try {
-			await axios.post('/sendEmail', data);
+			const res = await axios.post('/sendEmail', data);
+			if (res.status === 200) {
+				showToast('Email sent successfully!', 'success');
+				setInfo({ name: '', email: '', message: '' });
+			} else {
+				showToast(`Error sending email status code ${res.status}`, 'error');
+			}
 		} catch (error) {
 			console.log(error);
 		}

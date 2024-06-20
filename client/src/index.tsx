@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store, persistor } from './redux/store';
 import { PersistGate } from 'redux-persist/es/integration/react';
-import { ErrorBoundary } from 'react-error-boundary';
-import FallBack from './components/error-boundary/error-boundary.component';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -18,6 +18,7 @@ ReactDOM.render(
 					<App />
 				</PersistGate>
 			</Router>
+			<ToastContainer />
 		</Provider>
 	</React.StrictMode>,
 	document.getElementById('root')

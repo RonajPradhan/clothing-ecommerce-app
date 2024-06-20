@@ -49,6 +49,7 @@ const SignUp = () => {
 		const { name, value } = e.target;
 		setCredentials({ ...credentials, [name]: value });
 	};
+	
 	return (
 		<div className="sign-up">
 			<h2 className="title">I do not have an account</h2>

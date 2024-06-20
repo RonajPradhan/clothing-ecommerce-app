@@ -2,6 +2,7 @@ import React from 'react'
 import './checkout-item.styles.scss'
 import { useDispatch } from 'react-redux'
 import { clearItem, addItems, removeItemsFromCart } from '../../redux/cart/cart.action'
+import { showToast } from '../../utils/showToast'
 
 
 const CheckoutItem = ({cartItem}:any) => {
@@ -26,7 +27,10 @@ const CheckoutItem = ({cartItem}:any) => {
                 </div>
                 </span>
             <span className="price">{price}</span>
-            <div onClick={() => dispatch(clearItem(cartItem.id))} className="remove-button">
+            <div onClick={() => {
+                dispatch(clearItem(cartItem.id))
+                showToast(`🗑️${name} removed from the cart!`, 'success');
+            }} className="remove-button">
                 &#10005;
             </div>
         </div>

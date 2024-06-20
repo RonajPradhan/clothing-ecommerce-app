@@ -4,14 +4,13 @@ import { Item } from '../../constants';
 import CustomButton from '../custom-button/custom.button.component';
 import { useDispatch } from 'react-redux';
 import { addItems } from '../../redux/cart/cart.action';
+import { showToast } from '../../utils/showToast';
 
 interface Props {
 	item: Item;
 }
 
 const CollectionItem = ({ item }: Props) => {
-
-
 	const dispatch = useDispatch();
 
 	return (
@@ -24,7 +23,13 @@ const CollectionItem = ({ item }: Props) => {
 				<span className="name">{item.name}</span>
 				<span className="price">${item.price}</span>
 			</div>
-			<CustomButton inverted onClick={() => dispatch(addItems(item))}>
+			<CustomButton
+				inverted
+				onClick={() => {
+					dispatch(addItems(item));
+					showToast(`🎉${item.name} added to the cart!`, 'success');
+				}}
+			>
 				ADD TO CART
 			</CustomButton>
 		</div>
